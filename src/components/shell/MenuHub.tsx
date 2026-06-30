@@ -1003,7 +1003,7 @@ const CARDS: CardDef[] = [
   },
   {
     type: "link",
-    href: "https://github.com/musaadhydary/coverworks",
+    href: "https://github.com/musaad-hydary/coverworks",
     label: "Source",
     subtitle: "View source on GitHub",
     size: "md",
