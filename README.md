@@ -1,4 +1,4 @@
-# CoverWorks
+# Cover Works
 
 Design and print custom game case covers for PS4, PS5, and Nintendo Switch.
 
