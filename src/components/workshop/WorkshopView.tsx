@@ -176,9 +176,13 @@ interface Props {
   project: CoverProject;
   onChange: (p: CoverProject) => void;
   onSave: () => void;
+  onUndo?: () => void;
+  onRedo?: () => void;
+  canUndo?: boolean;
+  canRedo?: boolean;
 }
 
-export function WorkshopView({ project, onChange, onSave }: Props) {
+export function WorkshopView({ project, onChange, onSave, onUndo, onRedo, canUndo, canRedo }: Props) {
   const [exporting, setExporting] = useState(false);
   const [saved, setSaved] = useState(false);
   const [lowInk, setLowInk] = useState(false);
@@ -499,6 +503,10 @@ export function WorkshopView({ project, onChange, onSave }: Props) {
 
       {/* actions — below the controls column */}
       <div className="ws-actions">
+        <div className="ws-undo-group">
+          <button type="button" className="ws-btn-undo" onClick={onUndo} disabled={!canUndo} title="Undo (⌘Z)">↩</button>
+          <button type="button" className="ws-btn-undo" onClick={onRedo} disabled={!canRedo} title="Redo (⌘⇧Z)">↪</button>
+        </div>
         <button type="button" className="ws-btn-save" onClick={handleSave}>
           {saved ? "✓ Saved!" : "Save to library"}
         </button>

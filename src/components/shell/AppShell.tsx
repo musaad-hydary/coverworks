@@ -29,9 +29,15 @@ interface Props {
 export function AppShell({ active, onSelect, onBack, children, isLoading, onLoadDone }: Props) {
   const [exiting, setExiting] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [modalClosing, setModalClosing] = useState(false);
   const [screenOn, setScreenOn] = useState(true);
   const [powerAnim, setPowerAnim] = useState<'off' | 'on' | null>(null);
   const modalShownRef = useRef(false);
+
+  function closeModal() {
+    setModalClosing(true);
+    setTimeout(() => { setShowModal(false); setModalClosing(false); }, 200);
+  }
   const colors = active ? VIEW_COLORS[active] : null;
 
   useEffect(() => {
@@ -104,11 +110,11 @@ export function AppShell({ active, onSelect, onBack, children, isLoading, onLoad
 
           {/* Instructions modal */}
           {showModal && (
-            <div className="modal-backdrop" onClick={() => setShowModal(false)}>
-              <div className="modal-card" onClick={e => e.stopPropagation()}>
+            <div className={`modal-backdrop${modalClosing ? ' is-closing' : ''}`} onClick={closeModal}>
+              <div className={`modal-card${modalClosing ? ' is-closing' : ''}`} onClick={e => e.stopPropagation()}>
                 <div className="modal-header">
                   <span className="modal-title">CoverWorks</span>
-                  <button type="button" className="modal-close" onClick={() => setShowModal(false)}>✕</button>
+                  <button type="button" className="modal-close" onClick={closeModal}>✕</button>
                 </div>
                 <p className="modal-desc">
                   Design and print custom game case covers for PS4/PS5 and Nintendo Switch.
@@ -119,7 +125,7 @@ export function AppShell({ active, onSelect, onBack, children, isLoading, onLoad
                   <li><strong>Guide</strong> - exact dimensions and print tips</li>
                   <li><strong>History</strong> - case format timeline</li>
                 </ul>
-                <button type="button" className="modal-cta" onClick={() => setShowModal(false)}>
+                <button type="button" className="modal-cta" onClick={closeModal}>
                   Let's go →
                 </button>
                 <p className="modal-hint">Reopen anytime with the left knob below</p>

@@ -216,6 +216,37 @@
   color: rgba(0,0,0,0.28); margin: 0; letter-spacing: 0.05em; text-transform: uppercase;
 }
 
+@keyframes modal-backdrop-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes modal-backdrop-out {
+  from { opacity: 1; }
+  to   { opacity: 0; }
+}
+@keyframes modal-card-in {
+  0%   { opacity: 0; transform: scale(0.88) translateY(14px); }
+  65%  { opacity: 1; transform: scale(1.03) translateY(-2px); }
+  100% { opacity: 1; transform: scale(1) translateY(0); }
+}
+@keyframes modal-card-out {
+  from { opacity: 1; transform: scale(1) translateY(0); }
+  to   { opacity: 0; transform: scale(0.91) translateY(10px); }
+}
+
+.modal-backdrop {
+  animation: modal-backdrop-in 0.18s ease-out both;
+}
+.modal-backdrop.is-closing {
+  animation: modal-backdrop-out 0.18s ease-in both;
+}
+.modal-card {
+  animation: modal-card-in 0.28s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.modal-card.is-closing {
+  animation: modal-card-out 0.18s ease-in both;
+}
+
 /* ── interactive TV knobs ── */
 .tv-knob-btn {
   cursor: pointer; border: none; padding: 0;
@@ -643,10 +674,13 @@
   .desk-scene {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, auto);
-    padding: 36px 20px 28px;
+    padding: 86px 20px 28px;
     gap: 18px;
-    align-content: center;
+    align-content: start;
   }
+
+  .desk-cw-title { top: 16px; gap: 5px; }
+  .desk-cw-title .cw-card { font-size: 18px; padding: 4px 10px 5px; }
   .menu-card { grid-column: span 1; }
 
   .desk-menu-label { top: 6px; left: 8px; font-size: 10px; padding: 2px 8px; }
@@ -673,8 +707,9 @@
 }
 
 @media (max-width: 380px) {
-  .desk-scene { gap: 14px; padding: 28px 14px 20px; }
-  .desk-scene .menu-card:nth-child(5) { max-width: calc(50% - 7px); }
-  .menu-card-title { font-size: 15px; }
-  .menu-card-body { min-height: 80px; padding: 10px 12px 12px; }
+  .desk-scene { gap: 12px; padding: 76px 10px 20px; }
+  .desk-cw-title .cw-card { font-size: 15px; padding: 3px 8px 4px; }
+  .menu-card-title { font-size: 14px; }
+  .menu-card-header { padding: 8px 10px 6px; gap: 6px; }
+  .menu-card-body { min-height: 76px; padding: 10px 10px 12px; }
 }
