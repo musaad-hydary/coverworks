@@ -8,6 +8,7 @@ import {
 import type { ViewKey } from "../../types";
 import { MenuHub } from "./MenuHub";
 import { KirbyLoading } from "./KirbyLoading";
+import { ArrowRightIcon, ChevronLeftIcon, CloseIcon } from "./icons";
 
 const LABELS: Record<ViewKey, string> = {
   workshop: "Workshop",
@@ -126,7 +127,7 @@ export function AppShell({
                   className="section-back-btn"
                   onClick={handleBack}
                 >
-                  ◀ Back
+                  <ChevronLeftIcon width={14} height={14} /> Back
                 </button>
               </div>
               <div className="section-content">{children}</div>
@@ -153,7 +154,7 @@ export function AppShell({
                     className="modal-close"
                     onClick={closeModal}
                   >
-                    ✕
+                    <CloseIcon width={14} height={14} />
                   </button>
                 </div>
                 <p className="modal-desc">
@@ -180,7 +181,7 @@ export function AppShell({
                   className="modal-cta"
                   onClick={closeModal}
                 >
-                  Let's go →
+                  Let's go <ArrowRightIcon width={14} height={14} />
                 </button>
                 <p className="modal-hint">
                   Reopen anytime with the left knob below

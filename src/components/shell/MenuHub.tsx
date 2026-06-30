@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
 import type { ViewKey } from "../../types";
+import { ArrowRightIcon, ExternalLinkIcon } from "./icons";
 
 /* ── icons (16×16) ─────────────────────────────────────── */
 const ICON_WORKSHOP = [
@@ -1103,7 +1104,10 @@ export function MenuHub({ onSelect }: { onSelect: (v: ViewKey) => void }) {
                 <div className="menu-card-text">
                   <div className="menu-card-subtitle">{card.subtitle}</div>
                   <div className="menu-card-cta">
-                    {card.type === "link" ? "Open ↗" : "Open →"}
+                    Open{" "}
+                    {card.type === "link"
+                      ? <ExternalLinkIcon width={13} height={13} />
+                      : <ArrowRightIcon width={13} height={13} />}
                   </div>
                 </div>
               </div>

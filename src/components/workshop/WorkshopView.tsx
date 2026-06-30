@@ -11,7 +11,7 @@ import { wrapWidthMm, wrapHeightMm } from "../../lib/geometry";
 import { fileToImagePlacement } from "../../lib/upload";
 import { renderFull } from "../../lib/renderCover";
 import { exportToPdf } from "../../lib/pdf";
-import { UploadIcon, DownloadIcon, TrashIcon } from "../shell/icons";
+import { UploadIcon, DownloadIcon, TrashIcon, UndoIcon, RedoIcon } from "../shell/icons";
 
 /* ─── platform overlay chips ────────────────────────────── */
 interface OverlayGroup {
@@ -504,8 +504,8 @@ export function WorkshopView({ project, onChange, onSave, onUndo, onRedo, canUnd
       {/* actions — below the controls column */}
       <div className="ws-actions">
         <div className="ws-undo-group">
-          <button type="button" className="ws-btn-undo" onClick={onUndo} disabled={!canUndo} title="Undo (⌘Z)">↩</button>
-          <button type="button" className="ws-btn-undo" onClick={onRedo} disabled={!canRedo} title="Redo (⌘⇧Z)">↪</button>
+          <button type="button" className="ws-btn-undo" onClick={onUndo} disabled={!canUndo} title="Undo (⌘Z)"><UndoIcon width={16} height={16} /></button>
+          <button type="button" className="ws-btn-undo" onClick={onRedo} disabled={!canRedo} title="Redo (⌘⇧Z)"><RedoIcon width={16} height={16} /></button>
         </div>
         <button type="button" className="ws-btn-save" onClick={handleSave}>
           {saved ? "✓ Saved!" : "Save to library"}

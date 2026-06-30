@@ -101,3 +101,48 @@ export function ExternalLinkIcon(props: SVGProps<SVGSVGElement>) {
     </Base>
   );
 }
+
+export function ArrowRightIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Base {...props}>
+      <path d="M5 12h14" />
+      <path d="M13 6l6 6-6 6" />
+    </Base>
+  );
+}
+
+export function ChevronLeftIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Base {...props}>
+      <path d="M15 18l-6-6 6-6" />
+    </Base>
+  );
+}
+
+export function UndoIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Base {...props}>
+      <path d="M3 10h10a6 6 0 0 1 0 12H9" />
+      <path d="M3 10l4-4-4-4" transform="scale(1,-1) translate(0,-20)" />
+      <path d="M7 6L3 10l4 4" />
+    </Base>
+  );
+}
+
+export function RedoIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Base {...props}>
+      <path d="M21 10H11a6 6 0 0 0 0 12h4" />
+      <path d="M17 6l4 4-4 4" />
+    </Base>
+  );
+}
+
+export function CloseIcon(props: SVGProps<SVGSVGElement>) {
+  return (
+    <Base {...props}>
+      <path d="M18 6L6 18" />
+      <path d="M6 6l12 12" />
+    </Base>
+  );
+}
