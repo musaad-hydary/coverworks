@@ -1013,7 +1013,7 @@ const CARDS: CardDef[] = [
   },
   {
     type: "link",
-    href: "https://coverworks.substack.com",
+    href: "https://musaadh.substack.com/p/from-loose-disc-to-print-ready-pdf",
     label: "Read",
     subtitle: "Behind the project on Substack",
     size: "md",
