@@ -103,6 +103,7 @@ export function AppShell({
 
   return (
     <div className="shell-root">
+      <div className="tv-shell">
       <div className="tv-screen-frame">
         <div className="dex-screen" data-view={active ?? "menu"}>
           {isLoading ? (
@@ -213,6 +214,7 @@ export function AppShell({
         </div>
         <div className="tv-brand">COVER WORKS</div>
         <div className={`tv-power-led${!screenOn ? " led-off" : ""}`} />
+      </div>
       </div>
     </div>
   );
